@@ -1,0 +1,111 @@
+@import "../../.cache/wal/colors-waybar.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 13px;
+    border: none;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #111111;
+    color: @color7;
+    border-radius: 8px;
+}
+
+.modules-left {
+    margin-left: 50px;
+}
+
+.modules-right {
+    margin-right: 50px;
+}
+
+#clock, 
+#network, 
+#temperature, 
+#workspaces, 
+#cpu,                  
+#memory,               
+#custom-power, 
+#custom-backlight_down,
+#custom-backlight_up,
+#battery,              
+#pulseaudio,          
+#bluetooth,           
+#custom-battery_limit  
+{
+    background: transparent;
+    color: @color7;
+    border: none;
+    padding: 2px 10px;
+    margin: 0;
+    transition: all 0.3s ease-out;
+}
+
+#clock:hover,
+#network:hover,
+#temperature:hover,
+#cpu:hover,
+#memory:hover,
+#custom-power:hover,
+#custom-backlight_down:hover,
+#custom-backlight_up:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+#group-system-info {
+    padding: 0; 
+}
+
+#group-system-info .drawer-children,
+#group-system-info > * {
+    padding-left: 5px; 
+}
+
+#group-system-info:hover #battery,
+#group-system-info:hover #pulseaudio,
+#group-system-info:hover #bluetooth,
+#group-system-info:hover #custom-battery_limit {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* Модуль воркспейсов */
+#workspaces {
+    background: rgba(255, 255, 255, 0.05); 
+    border-radius: 10px;
+    margin: 4px 15px; 
+}
+
+#workspaces button {
+    padding: 0 10px;
+    color: @color7;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    background: @color1;
+    color: @background;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Цвета модулей */
+#cpu { color: @color6; }         
+#memory { color: @color2; }      
+#temperature { color: @color5; } 
+#network { color: @color4; }
+#battery { color: @color2; }
+#custom-power { color: #e74c3c; } 
+
+#custom-backlight_down:hover, 
+#custom-backlight_up:hover, 
+#custom-power:hover,
+#network:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
