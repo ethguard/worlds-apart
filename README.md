@@ -15,7 +15,7 @@
 ## 🛠️ Стек (Technical Stack)
 * OS: Arch Linux 
 * WM: Hyprland (Wayland)
-* Terminal: Kitty
+* Terminal: Alacritty
 * Shell: Zsh + Oh-My-Zsh
 * Status Bar: Waybar
 * Launcher: Wofi
@@ -28,8 +28,8 @@
 
 | Категория | Пакеты |
 | :--- | :--- |
-| Core | hyprland, waybar, kitty, swww, dunst |
-| Utils | wofi, grim, slurp, wl-clipboard, network-manager-applet |
+| Core | hyprland, waybar, alacritty, awww, dunst |
+| Utils | wofi, grim, slurp, wl-clipboard, network-manager-applet, swaync |
 | Fonts | JetBrainsMono Nerd Font, Noto Sans |
 
 ---
