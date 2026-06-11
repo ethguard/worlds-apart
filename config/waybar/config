@@ -2,28 +2,30 @@
     "layer": "top",
     "position": "top",
     "height": 35,
-    "exclusive": true,  
+    "exclusive": true,
     "spacing": 0,
     "margin-top": 8,
     "margin-bottom": 8,
     "margin-left": 10,
     "margin-right": 10,
-
     "modules-left": [
-        "custom/backlight_down", 
-        "custom/backlight_up", 
-        "clock", 
+        "custom/backlight_down",
+        "custom/backlight_up",
+        "clock",
         "network"
     ],
-    "modules-center": ["hyprland/workspaces"],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
     "modules-right": [
-        "cpu",               
-        "memory",            
-        "temperature",       
-        "group/system-info", 
+        "hyprland/language",
+        "cpu",
+        "memory",
+        "temperature",
+        "group/system-info",
+        "custom/notification",
         "custom/power"
     ],
-
     "group/system-info": {
         "orientation": "horizontal",
         "drawer": {
@@ -32,89 +34,87 @@
             "transition-left-to-right": false
         },
         "modules": [
-            "battery",            
-            "pulseaudio",         
-            "bluetooth",          
-            "custom/battery_limit" 
+            "battery",
+            "pulseaudio",
+            "bluetooth",
+            "custom/battery_limit"
         ]
     },
-
+    "hyprland/language": {
+        "format": "󰌌 {}",
+        "format-en": "US",
+        "format-ru": "RU"
+    },
+    "custom/notification": {
+        "format": "󰂚",
+        "on-click": "swaync-client -t -sw",
+        "tooltip": false
+    },
     "cpu": {
         "format": " {usage}%",
         "interval": 2,
         "tooltip": true
     },
-
     "memory": {
         "format": " {used}GB",
         "interval": 10,
         "tooltip": true,
         "tooltip-format": "Used: {used}GB\nAvailable: {avail}GB\nTotal: {total}GB"
     },
-
     "custom/backlight_down": {
         "format": "󰃞",
         "on-click": "brightnessctl set 5%-",
         "tooltip": false
     },
-
     "custom/backlight_up": {
         "format": "󰃠",
         "on-click": "brightnessctl set +5%",
         "tooltip": false
     },
-
     "hyprland/workspaces": {
         "format": "{name}",
         "on-click": "activate",
         "disable-scroll": true,
         "all-outputs": true
     },
-
     "network": {
         "format-wifi": " {essid}",
         "format-ethernet": "󰈀 {ifname}",
         "format-disconnected": "󰖪 off",
         "on-click": "nm-connection-editor"
     },
-
     "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
         "critical-threshold": 80,
         "format": " {temperatureC}°C"
     },
-
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-icons": { "default": ["", "", ""] },
+        "format-icons": {
+            "default": ["", "", ""]
+        },
         "on-click": "pavucontrol"
     },
-
     "bluetooth": {
         "format": " {status}",
         "format-disabled": " off",
         "on-click": "blueman-manager"
     },
-
     "battery": {
         "format": "{icon} {capacity}%",
         "format-icons": ["", "", "", "", ""]
     },
-
     "custom/battery_limit": {
         "format": "{}",
         "return-type": "json",
-        "on-click": "/home/teigu/.config/hypr/scripts/battery_limit.sh", 
+        "on-click": "/home/teigu/.config/hypr/scripts/battery_limit.sh",
         "exec": "/home/teigu/.config/hypr/scripts/bat_status.sh",
         "interval": 10,
         "signal": 8
     },
-
     "clock": {
         "format": "{:%H:%M  |  %d %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-
     "custom/power": {
         "format": "",
         "on-click": "wlogout"

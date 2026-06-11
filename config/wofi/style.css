@@ -1,51 +1,47 @@
-window {
-    margin: 0px;
-    border: 2px solid #23827D;
-    background-color: rgba(15, 15, 15, 0.9);
-    border-radius: 20px;
-    font-family: "JetBrainsMono Nerd Font";
-    /* ПРИНУДИТЕЛЬНЫЙ ОТСТУП ОТ РАМКИ */
-    padding: 20px; 
+* {
+    font-family: "JetBrainsMono NF", monospace;
+    font-size: 14px;
 }
-
-#input {
-    margin-bottom: 20px; /* Отступ строки поиска от списка */
+#window {
+    background-color: transparent;
     border: none;
+}
+#outer-box {
+    padding: 10px;
+    background-color: #040608;
     color: #a8e2dc;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 12px;
-    padding: 12px;
+    border: 2px solid #23827D;
+    border-radius: 0px;
 }
-
-#inner-box {
-    /* Убираем все лишнее, чтобы не мешало отступам */
+#scroll {
     margin: 0px;
+    padding: 0px;
+    border: none;
 }
-
+#input {
+    background-color: #040608;
+    color: #a8e2dc;
+    border: 2px solid #23827D;
+    border-radius: 0px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
 #entry {
-    padding: 15px; /* Размер каждой плашки приложения */
-    border-radius: 12px;
-    margin-bottom: 10px; /* Расстояние между приложениями */
-    border: 2px solid transparent; /* Заготовка, чтобы при выделении не прыгало */
+    padding: 8px;
+    border-radius: 0px;
 }
-
 #entry:selected {
     background-color: #23827D;
-    border: 2px solid rgba(255, 255, 255, 0.1);
 }
-
-#text {
-    margin-left: 15px;
-    color: #a8e2dc;
-    font-size: 16px;
-    vertical-align: center;
+#entry:selected text {
+    color: #040608;
 }
-
-#text:selected {
-    color: #ffffff;
-    font-weight: bold;
-}
-
-#img {
-    margin-right: 5px;
+scrollbar, scrollbar button, scrollbar trough, scrollbar slider {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    min-width: 0px;
+    min-height: 0px;
+    opacity: 0;
 }

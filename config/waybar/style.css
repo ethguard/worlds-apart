@@ -26,14 +26,16 @@ window#waybar {
 #network, 
 #temperature, 
 #workspaces, 
-#cpu,                  
+#cpu,                 
 #memory,               
+#language,
+#custom-notification,
 #custom-power, 
 #custom-backlight_down,
 #custom-backlight_up,
 #battery,              
-#pulseaudio,          
-#bluetooth,           
+#pulseaudio,           
+#bluetooth,            
 #custom-battery_limit  
 {
     background: transparent;
@@ -49,6 +51,8 @@ window#waybar {
 #temperature:hover,
 #cpu:hover,
 #memory:hover,
+#language:hover,
+#custom-notification:hover,
 #custom-power:hover,
 #custom-backlight_down:hover,
 #custom-backlight_up:hover {
@@ -96,6 +100,8 @@ window#waybar {
 }
 
 /* Цвета модулей */
+#language { color: @color3; }
+#custom-notification { color: @color1; }
 #cpu { color: @color6; }         
 #memory { color: @color2; }      
 #temperature { color: @color5; } 

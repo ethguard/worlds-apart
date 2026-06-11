@@ -1,6 +1,69 @@
-/* ----------- 💫 https://github.com/JaKooLit 💫 -------- */
-/* swaync colors - wallust from waybar.css */
+@import "../../.cache/wal/colors-waybar.css";
 
-@import '../../.config/waybar/colors.css';
-@import 'themes/control_center.css';
-@import 'themes/notifications.css';
+* {
+    font-family: "JetBrainsMono NF", "monospace";
+    font-size: 13px;
+}
+
+/* Окно центра уведомлений */
+.control-center {
+    background: @background;
+    border: 2px solid @color1;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.widget-title {
+    color: @color1;
+    font-weight: bold;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+}
+
+.widget-title button {
+    background: transparent;
+    color: @foreground;
+    border: 1px solid @color1;
+    border-radius: 2px;
+    padding: 2px 8px;
+}
+
+.widget-title button:hover {
+    background: @color1;
+    color: @background;
+}
+
+/* Всплывающие уведомления (тосты на экране) теперь непрозрачные */
+.notification {
+    background: @background;
+    border: 1px solid @color1;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 6px 0px;
+}
+
+.notification.critical {
+    border: 2px solid #ff5555;
+}
+
+.notification-content .summary {
+    color: @color1;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.notification-content .body {
+    color: @foreground;
+    font-size: 12px;
+}
+
+.close-button {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+}
+
+.close-button:hover {
+    color: #ff5555;
+}
