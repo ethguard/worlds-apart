@@ -91,5 +91,5 @@ The Fastfetch configuration in this repository detects the user's OS, host, shel
 - `docs/`: plugin credits and release preparation notes.
 
 ## Credits and reuse
-Thanks Chatgpt
+Thanks Chatgpt,
 Please keep the upstream acknowledgments when sharing this configuration. See [CREDITS.md](CREDITS.md) for sources and [THIRD_PARTY.md](THIRD_PARTY.md) for license notices and unresolved asset provenance. No blanket license is assigned to all files in this repository.
