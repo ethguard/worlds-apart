@@ -36,7 +36,7 @@ If you already use Home Manager, avoid managing the same `~/.config` paths twice
 Log into a Hyprland session first. The installer reads your current monitor modes, positions, scale, and keyboard options, so it must run from that session as your regular user.
 
 ```sh
-git clone https://github.com/Teiguuu/dotfiles.git
+git clone https://github.com/yxzroot/dotfiles.git
 cd dotfiles
 ./install.sh --check
 ./install.sh
@@ -44,7 +44,7 @@ hyprctl reload
 ~/.config/hypr/scripts/start-rice.sh
 ```
 
-The clone URL above is the current repository origin; change it if this rice is published under a new name. Backups and a `restore.py` command are printed by the installer. The installer copies files to `~/.config` and `~/.local/share/teigu-rice`; it does not create Nix store links. New configurations may be overwritten by later Home Manager switches if you also declare those paths there.
+Backups and a `restore.py` command are printed by the installer. The installer copies files to `~/.config` and `~/.local/share/teigu-rice`; it does not create Nix store links. New configurations may be overwritten by later Home Manager switches if you also declare those paths there.
 
 ## 3. Wallpapers and sessions
 

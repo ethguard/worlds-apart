@@ -1,6 +1,6 @@
 # Release preparation
 
-Prepared locally; no GitHub push or release has been made.
+Pushed to the public fork at https://github.com/yxzroot/dotfiles on 2026-10-29. This is a repository push, not a tagged GitHub release.
 
 Completed:
 
@@ -13,7 +13,7 @@ Completed:
 Still to decide with the maintainer:
 
 - Installer preflight and distro-neutral config copying are implemented; package installation and the preview-based wallpaper chooser remain open. Six personal wallpaper source pages are confirmed in `docs/moewalls-wallpapers.json`. The MediaFire folder with six videos and 17 original stills, and the separate World80 GitHub source, are recorded in `docs/wallpaper-sources.json`. Redistribution terms still need review.
-- Project name and repository destination; the current Git remote is the original Teiguuu repository.
+- Project name and tagged release version. The public fork is yxzroot/dotfiles, with Teiguuu/dotfiles retained as upstream.
 - Project licensing and unresolved upstream/artwork permissions listed in `THIRD_PARTY.md`.
 
 Compatibility notes:

@@ -32,9 +32,11 @@ Built on [Teiguuu's dotfiles](https://github.com/Teiguuu/dotfiles), with a galle
 
 Developed on **CachyOS / Arch Linux with Hyprland 0.57.0**, using Hyprland's Lua configuration API. Other distributions and Hyprland versions have not been validated.
 
-From the repository directory, run these commands as your regular user inside Hyprland after installing the dependencies. The shell script installs Python 3 with your system package manager if it is missing. `--check` only reports prerequisites:
+After installing the desktop dependencies, clone this repository and run the installer as your regular user inside Hyprland. The shell script installs Python 3 if it is missing; `--check` only reports prerequisites:
 
 ```sh
+git clone https://github.com/yxzroot/dotfiles.git
+cd dotfiles
 ./install.sh --check
 ./install.sh
 hyprctl reload
