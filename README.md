@@ -1,4 +1,4 @@
-# Hyprland rice
+# Worlds Apart
 
 A wallpaper-driven Hyprland desktop with an infinite floating canvas, a visual wallpaper gallery, and coordinated colors across the shell.
 
@@ -35,8 +35,8 @@ Developed on **CachyOS / Arch Linux with Hyprland 0.57.0**, using Hyprland's Lua
 After installing the desktop dependencies, clone this repository and run the installer as your regular user inside Hyprland. The shell script installs Python 3 if it is missing; `--check` only reports prerequisites:
 
 ```sh
-git clone https://github.com/yxzroot/dotfiles.git
-cd dotfiles
+git clone https://github.com/yxzroot/worlds-apart.git
+cd worlds-apart
 ./install.sh --check
 ./install.sh
 hyprctl reload

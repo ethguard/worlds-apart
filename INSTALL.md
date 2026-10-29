@@ -1,4 +1,4 @@
-# Install the configuration
+# Install Worlds Apart
 
 The Python installer works without a distribution-specific package manager. It copies the rice into your home directory, preserves your active Hyprland monitor and keyboard settings, adapts Waybar hardware modules, and creates a restorable backup. Run it as your regular user **inside an existing Hyprland session**. Hyprland 0.55 or newer with Lua configuration is required; development and visual checks were on 0.57.0.
 

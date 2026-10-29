@@ -1,4 +1,4 @@
-# NixOS guide
+# Worlds Apart on NixOS
 
 This configuration uses Hyprland's Lua API. Use a NixOS release or Hyprland package with **0.55 or newer**; the configuration was developed on 0.57.0. The NixOS module handles the session and desktop portal. The repository installer copies user configuration and generates a backup; it does not change `/etc/nixos`. If Python 3 is missing, `./install.sh` adds it to the user Nix profile; declaring it in `configuration.nix` is still recommended.
 
@@ -36,8 +36,8 @@ If you already use Home Manager, avoid managing the same `~/.config` paths twice
 Log into a Hyprland session first. The installer reads your current monitor modes, positions, scale, and keyboard options, so it must run from that session as your regular user.
 
 ```sh
-git clone https://github.com/yxzroot/dotfiles.git
-cd dotfiles
+git clone https://github.com/yxzroot/worlds-apart.git
+cd worlds-apart
 ./install.sh --check
 ./install.sh
 hyprctl reload
