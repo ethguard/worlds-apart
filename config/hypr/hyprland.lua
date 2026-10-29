@@ -48,7 +48,7 @@ local wal = load_wal_colors()
 -- https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "",
-    mode     = "1920x1080@144",
+    mode     = "preferred",
     position = "auto",
     scale    = 1,
 })
@@ -56,20 +56,16 @@ hl.monitor({
 -----------------------
 ---- МОИ ПРОГРАММЫ ----
 -----------------------
-local terminal    = "alacritty"
+local terminal    = "kitty"
 local fileManager = "thunar"
-local cursor      = "hyprctl setcursor clay 24"
+local cursor      = "hyprctl setcursor Adwaita 24"
 
 -------------------
 ---- АВТОСТАРТ ----
 -------------------
 hl.on("hyprland.start", function()
-    hl.exec_cmd("awww-daemon")
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("~/.config/hypr/scripts/change_wallpaper.sh")
-    hl.exec_cmd("swaync")
+    hl.exec_cmd("~/.config/hypr/scripts/start-rice.sh")
     hl.exec_cmd(cursor)
-    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 end)
 
 -------------------------------
@@ -89,8 +85,8 @@ hl.config({
 
         ["col.active_border"] = {
             colors = {
-                wal.color1 or "rgba(ffffffcc)",
-                wal.color2 or "rgba(111111cc)",
+                wal.color4 or "rgba(ffffffcc)",
+                wal.color6 or "rgba(111111cc)",
             },
             angle = 45,
         },
@@ -169,8 +165,8 @@ hl.config({
 --------------
 hl.config({
     input = {
-        kb_layout = "us,ru",
-        kb_options = "grp:alt_shift_toggle",
+        kb_layout = "us",
+        kb_options = "",
         follow_mouse = 1,
         sensitivity = 0,
         accel_profile = "flat", -- помогает CPU меньше считать кривые ускорения
@@ -185,11 +181,14 @@ hl.config({
 -------------------------
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill wofi || wofi --show drun"))
+-- Open the launcher on a tap of either Super key.
+hl.bind("SUPER + Super_L", hl.dsp.exec_cmd("pkill wofi || wofi --show drun"), { release = true })
+hl.bind("SUPER + Super_R", hl.dsp.exec_cmd("pkill wofi || wofi --show drun"), { release = true })
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + C", hl.dsp.window.kill())
+hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exit())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "fullscreen" }))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
@@ -222,8 +221,20 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),      { locked = true, repeating = true })
 
 -- Скриншот и обои
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh"))
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("~/.config/hypr/scripts/world80-gallery.sh"))
 hl.bind("Print",     hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh"))
 hl.bind("SUPER + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/change_wallpaper.sh"))
 
 -- Уведы
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+
+-- Machine-specific display/input settings, created by install.py.
+local local_config = os.getenv("HOME") .. "/.config/hypr/local.lua"
+if io.open(local_config, "r") then dofile(local_config) end
+
+-- Optional infinite floating canvas (Super+Shift+3).
+TeiguCanvas = dofile(os.getenv("HOME") .. "/.config/hypr/infinite-desktop.lua")
+
+-- Searchable guide to all desktop shortcuts.
+hl.bind("SUPER + slash", hl.dsp.exec_cmd("~/.config/hypr/scripts/shortcut-guide.sh"), { description = "Show keyboard shortcuts" })

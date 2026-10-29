@@ -1,0 +1,21 @@
+# Machine-specific Hyprland settings
+/config/hypr/local.lua
+
+# Generated Python and editor files
+__pycache__/
+*.py[cod]
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Configuration backups and temporary files
+*.backup-*
+*.before-*
+*.bak
+*.tmp
+
+# Wallpaper videos are optional external downloads
+*.mp4
+*.webm
+*.mkv

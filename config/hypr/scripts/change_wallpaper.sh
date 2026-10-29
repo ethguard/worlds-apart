@@ -1,102 +1,37 @@
-#!/bin/bash
-
-DIR="$HOME/Pictures/oboi/Обои"
-
-# 1. Сбор всех картинок в массив
-mapfile -t WALLPAPERS < <(find "$DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \) )
-
-# Проверка, что директория не пустая
-if [ ${#WALLPAPERS[@]} -eq 0 ]; then
-    notify-send "Ошибка" "Обои не найдены в $DIR"
+#!/usr/bin/env bash
+set -euo pipefail
+export PATH="$HOME/.local/bin:$PATH"
+DIR="$HOME/.local/share/teigu-rice/wallpaper"
+mkdir -p "$HOME/Pictures/Wallpapers"
+mapfile -d '' -t wallpapers < <(find -L "$DIR" "$HOME/Pictures/Wallpapers" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' -o -iname '*.webp' \) -print0)
+if ((${#wallpapers[@]} == 0)); then
+    notify-send 'Wallpaper' "No images found in $DIR"
     exit 1
 fi
-
-# 2. Рандомный выбор из массива
-RANDOM_INDEX=$(( RANDOM % ${#WALLPAPERS[@]} ))
-WALLPAPER="${WALLPAPERS[$RANDOM_INDEX]}"
-
-# 3. Генерируем палитру
-wal -i "$WALLPAPER" -q
-
-# Смена обоев
-awww img "$WALLPAPER" --transition-type center --transition-step 90
-
-# CAVA
-if [ -f "$HOME/.cache/wal/cava" ]; then
-    cp "$HOME/.cache/wal/cava" "$HOME/.config/cava/config"
-    pkill -USR1 cava || true
+wallpaper="${1:-${wallpapers[RANDOM % ${#wallpapers[@]}]}}"
+# Generate all imported theme files before asking consumers to reload.
+python3 "$HOME/.config/world80-gallery/theme.py" apply "$wallpaper"
+ln -sfn "$wallpaper" "$HOME/.cache/wal/current-wallpaper"
+if ! awww query >/dev/null 2>&1; then
+    awww-daemon >/dev/null 2>&1 &
+    for _ in {1..50}; do
+        awww query >/dev/null 2>&1 && break
+        sleep 0.1
+    done
 fi
-
-# HYPRLOCK, KITTY
-cp ~/.cache/wal/colors-hyprlock.conf ~/.config/hypr/colors-hyprlock.conf
-killall -USR1 kitty 2>/dev/null
-
-# WAYBAR (плавное обновление через сигнал)
-pkill -SIGUSR2 waybar
-
-# 4. ТРИГГЕР ДЛЯ ОБНОВЛЕНИЯ РАМОК HYPRLAND
-touch ~/.config/hypr/hyprland.conf
-
-# TTY sequences
-for term in /dev/pts/[0-9]*; do
-    cat ~/.cache/wal/sequences > "$term" 2>/dev/null
-done
-
-# Обновление темы Wofi при смене обоев (Безопасный CSS без деформации окна)
-source "$HOME/.cache/wal/colors.sh"
-cat << EOF > "$HOME/.config/wofi/style.css"
-* {
-    font-family: "JetBrainsMono NF", monospace;
-    font-size: 14px;
-}
-#window {
-    background-color: transparent;
-    border: none;
-}
-#outer-box {
-    padding: 10px;
-    background-color: ${background};
-    color: ${foreground};
-    border: 2px solid ${color1};
-    border-radius: 0px;
-}
-#scroll {
-    margin: 0px;
-    padding: 0px;
-    border: none;
-}
-#input {
-    background-color: ${background};
-    color: ${foreground};
-    border: 2px solid ${color1};
-    border-radius: 0px;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-#entry {
-    padding: 8px;
-    border-radius: 0px;
-}
-#entry:selected {
-    background-color: ${color1};
-}
-#entry:selected text {
-    color: ${background};
-}
-scrollbar, scrollbar button, scrollbar trough, scrollbar slider {
-    background-color: transparent;
-    background-image: none;
-    border: none;
-    box-shadow: none;
-    min-width: 0px;
-    min-height: 0px;
-    opacity: 0;
-}
-EOF
-
-# 5. УВЕДОМЛЕНИЯ И СБРОС КЕША SWAYNC
-notify-send "Theme Updated" "Colors matched to: $(basename "$WALLPAPER")"
-
-sleep 0.5
-swaync-client -R
-swaync-client -rs
+awww img "$wallpaper" --transition-type center --transition-step 90
+if [[ -f "$HOME/.cache/wal/cava" ]]; then
+    cp "$HOME/.cache/wal/cava" "$HOME/.config/cava/config"
+    pkill -USR1 -x cava || true
+fi
+cp "$HOME/.cache/wal/wofi.css" "$HOME/.config/wofi/style.css"
+pkill -USR1 -x kitty || true
+pkill -USR2 -x waybar || true
+hyprctl reload >/dev/null
+if pgrep -x swaync >/dev/null; then
+    swaync-client -R >/dev/null || true
+    swaync-client -rs >/dev/null || true
+fi
+mkdir -p "$HOME/.cache/teigu-rice"
+printf '%s\n' "${TEIGU_VIDEO_WALLPAPER:-}" > "$HOME/.cache/teigu-rice/active-video"
+notify-send 'Theme updated'  "Colors matched to: $(basename "$wallpaper")" || true

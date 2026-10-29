@@ -1,0 +1,35 @@
+{
+  "note": "User-confirmed MoeWalls source pages. These are page URLs, not direct MP4 download URLs.",
+  "wallpapers": [
+    {
+      "name": "Anime girl chilling on a tank in the forest",
+      "filename": "anime-girl-chilling-on-a-tank-in-the-forest-moewalls-com.mp4",
+      "page_url": "https://moewalls.com/anime/anime-girl-chilling-on-a-tank-in-the-forest-live-wallpaper/"
+    },
+    {
+      "name": "Furina midnight meadow",
+      "filename": "furina-midnight-meadow-genshin-impact-moewalls-com.mp4",
+      "page_url": "https://moewalls.com/anime/furina-midnight-meadow-genshin-impact-live-wallpaper/"
+    },
+    {
+      "name": "Anime girl shadow blade monochrome",
+      "filename": "anime-girl-shadow-blade-monochrome-moewalls-com.mp4",
+      "page_url": "https://moewalls.com/anime/anime-girl-shadow-blade-monochrome-live-wallpaper/"
+    },
+    {
+      "name": "Firewatch rainy day",
+      "filename": "firewatch-rainy-day-moewalls-com.mp4",
+      "page_url": "https://moewalls.com/landscape/firewatch-rainy-day-live-wallpaper/"
+    },
+    {
+      "name": "Early morning forest",
+      "filename": "in-the-early-morning-forest-moewalls-com.mp4",
+      "page_url": "https://moewalls.com/landscape/in-the-early-morning-forest-live-wallpaper/"
+    },
+    {
+      "name": "Wavy grass",
+      "filename": "wavy-grass-moewalls-com.mp4",
+      "page_url": "https://moewalls.com/landscape/wavy-grass-live-wallpaper/"
+    }
+  ]
+}

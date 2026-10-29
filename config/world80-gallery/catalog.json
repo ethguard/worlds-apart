@@ -1,0 +1,112 @@
+{
+  "bog": [
+    "#c9ba62",
+    "#8ea24e",
+    "#b85c33"
+  ],
+  "moon": [
+    "#fcee0a",
+    "#00e5ff",
+    "#ff2e6c"
+  ],
+  "nature": [
+    "#e8a63c",
+    "#93b077",
+    "#d4877c"
+  ],
+  "road8": [
+    "#f2ba5e",
+    "#a9bdd9",
+    "#e2432c"
+  ],
+  "avalon": [
+    "#8fbe58",
+    "#e6d75a",
+    "#c97e52"
+  ],
+  "downpour": [
+    "#7fb0d6",
+    "#5b93b8",
+    "#c98f7e"
+  ],
+  "encore": [
+    "#56c8d8",
+    "#4aa4e4",
+    "#e0338c"
+  ],
+  "fuel": [
+    "#ff5a1e",
+    "#9ed4e6",
+    "#e0372a"
+  ],
+  "gunsmoke": [
+    "#d9d3c5",
+    "#8e9aa1",
+    "#9e2b25"
+  ],
+  "guts": [
+    "#9e1414",
+    "#26242b",
+    "#c22318"
+  ],
+  "homeroom": [
+    "#8fd0f4",
+    "#a9bdf0",
+    "#d873b4"
+  ],
+  "lonely-train": [
+    "#e8a45c",
+    "#7fa3d8",
+    "#d95f52"
+  ],
+  "nightshift": [
+    "#c8dc9e",
+    "#6fa2f2",
+    "#e0574a"
+  ],
+  "pines": [
+    "#e2a55c",
+    "#a9c6d8",
+    "#d96b4f"
+  ],
+  "sailing": [
+    "#d1553c",
+    "#c9a0b4",
+    "#e8664d"
+  ],
+  "sakura": [
+    "#ef8ba1",
+    "#a8bde0",
+    "#d9536f"
+  ],
+  "shiro": [
+    "#7f76b8",
+    "#bd7590",
+    "#c25e76"
+  ],
+  "sleeper": [
+    "#a9c491",
+    "#d9d5a3",
+    "#c25b49"
+  ],
+  "stars": [
+    "#f2bb54",
+    "#e89aa8",
+    "#e2695c"
+  ],
+  "stillwater": [
+    "#f2e8d4",
+    "#7fb2e8",
+    "#c87da8"
+  ],
+  "thicket": [
+    "#e0785a",
+    "#c6d0e2",
+    "#cf4b33"
+  ],
+  "vinland": [
+    "#8ecfec",
+    "#dfb75c",
+    "#c8646c"
+  ]
+}

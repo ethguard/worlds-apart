@@ -1,5 +1,5 @@
 show=drun
-prompt=Поиск...
+prompt=Search...
 allow_images=true
 image_size=32
 term=alacritty

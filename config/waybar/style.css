@@ -1,4 +1,4 @@
-@import "../../.cache/wal/colors-waybar.css";
+@import "colors-waybar.css";
 
 * {
     font-family: "JetBrainsMono Nerd Font";
@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-    background: #111111;
+    background: @background;
     color: @color7;
     border-radius: 8px;
 }
@@ -91,7 +91,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background: @color1;
+    background: @color4;
     color: @background;
 }
 
@@ -101,7 +101,7 @@ window#waybar {
 
 /* Цвета модулей */
 #language { color: @color3; }
-#custom-notification { color: @color1; }
+#custom-notification { color: @color4; }
 #cpu { color: @color6; }         
 #memory { color: @color2; }      
 #temperature { color: @color5; } 

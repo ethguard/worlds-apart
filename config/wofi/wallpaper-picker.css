@@ -1,0 +1,44 @@
+@import url("../../.cache/wal/colors-waybar.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    outline: none;
+}
+window {
+    background-color: alpha(@background, 0.97);
+    color: @foreground;
+    border: 2px solid @color4;
+    border-radius: 22px;
+}
+#outer-box { padding: 22px; }
+#input {
+    background-color: alpha(@foreground, 0.06);
+    color: @foreground;
+    border: 1px solid alpha(@color4, 0.4);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 18px;
+    box-shadow: none;
+}
+#scroll { border: none; }
+#entry {
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    background-color: alpha(@foreground, 0.04);
+}
+#entry:selected {
+    background-color: alpha(@color4, 0.20);
+    border-color: @color4;
+}
+#img { margin-right: 16px; }
+#text { color: @foreground; }
+#entry:selected #text { color: @color4; }
+scrollbar { background: transparent; }
+scrollbar slider {
+    background-color: alpha(@color4, 0.4);
+    border-radius: 8px;
+    min-width: 4px;
+}

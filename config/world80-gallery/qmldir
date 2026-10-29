@@ -1,0 +1,5 @@
+singleton Theme 1.0 Theme.qml
+singleton ThemeConfig 1.0 ThemeConfig.qml
+ThemeSwitcher 1.0 ThemeSwitcher.qml
+VideoWall 1.0 VideoWall.qml
+ShortcutGuide 1.0 ShortcutGuide.qml
