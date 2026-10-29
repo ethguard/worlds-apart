@@ -7,11 +7,12 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import shutil
 import sys
 
 HOME = Path.home()
 STORE = HOME / '.local/share/teigu-rice/themes'
-WAL = HOME / '.local/bin/wal'
+WAL = shutil.which('wal') or str(HOME / '.local/bin/wal')
 VERSION = 'wallpaper-theme-v2'
 
 

@@ -11,7 +11,7 @@ PanelWindow {
     required property var modelData
     screen: modelData
     WlrLayershell.namespace: "world80-gallery-video"
-    WlrLayershell.layer: WlrLayer.Background
+    WlrLayershell.layer: WlrLayer.Bottom
     anchors { top: true; bottom: true; left: true; right: true }
     exclusionMode: ExclusionMode.Ignore
     color: "transparent"

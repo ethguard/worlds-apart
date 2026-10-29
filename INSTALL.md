@@ -19,3 +19,7 @@ On **NixOS**, follow [the NixOS guide](docs/NIXOS.md) to enable Hyprland and dec
 The wallpaper gallery opens with **Super+Shift+T**, the infinite canvas toggles with **Super+Shift+3**, and the full shortcut guide opens with **Super+/**. New wallpapers placed under `~/Pictures/Wallpapers` appear in the gallery. The World80 GitHub collection and the six personal MoeWalls videos are separate optional downloads; their sources are listed in [wallpaper-sources.json](docs/wallpaper-sources.json).
 
 The installer currently installs the bundled still images. The discussed wallpaper chooser (pick previews, get all, or get World80 plus the six videos) is not yet implemented. This installer has not been run on a fresh machine for every distribution.
+
+## Glass transparency
+
+Application windows use 80% focused/fullscreen opacity and 74% inactive opacity, with blur.

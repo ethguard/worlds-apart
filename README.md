@@ -20,6 +20,7 @@ Built on [Teiguuu's dotfiles](https://github.com/Teiguuu/dotfiles), with a galle
 
 ## Features
 
+- Glass transparency across application windows, including browsers and fullscreen apps.
 - Toggle an infinite canvas per workspace; pan, navigate, resize, and zoom down to 10%.
 - Restore the original tiled and floating window states when leaving canvas mode.
 - Browse wallpaper collections and variants in the Vernissage gallery.

@@ -3,12 +3,17 @@ set -euo pipefail
 export PATH="$HOME/.local/bin:$PATH"
 DIR="$HOME/.local/share/teigu-rice/wallpaper"
 mkdir -p "$HOME/Pictures/Wallpapers"
-mapfile -d '' -t wallpapers < <(find -L "$DIR" "$HOME/Pictures/Wallpapers" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' -o -iname '*.webp' \) -print0)
-if ((${#wallpapers[@]} == 0)); then
-    notify-send 'Wallpaper' "No images found in $DIR"
-    exit 1
+if [[ $# -gt 0 ]]; then
+    wallpaper="$1"
+    [[ -f "$wallpaper" ]] || { notify-send 'Wallpaper' "File not found: $wallpaper"; exit 1; }
+else
+    mapfile -d '' -t wallpapers < <(find -L "$DIR" "$HOME/Pictures/Wallpapers" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' -o -iname '*.webp' \) -print0)
+    if ((${#wallpapers[@]} == 0)); then
+        notify-send 'Wallpaper' "No images found in $DIR"
+        exit 1
+    fi
+    wallpaper="${wallpapers[RANDOM % ${#wallpapers[@]}]}"
 fi
-wallpaper="${1:-${wallpapers[RANDOM % ${#wallpapers[@]}]}}"
 # Generate all imported theme files before asking consumers to reload.
 python3 "$HOME/.config/world80-gallery/theme.py" apply "$wallpaper"
 ln -sfn "$wallpaper" "$HOME/.cache/wal/current-wallpaper"

@@ -238,3 +238,7 @@ TeiguCanvas = dofile(os.getenv("HOME") .. "/.config/hypr/infinite-desktop.lua")
 
 -- Searchable guide to all desktop shortcuts.
 hl.bind("SUPER + slash", hl.dsp.exec_cmd("~/.config/hypr/scripts/shortcut-guide.sh"), { description = "Show keyboard shortcuts" })
+
+-- Worlds Apart: glass across all application windows, including fullscreen.
+hl.config({ decoration = { active_opacity = 0.80, inactive_opacity = 0.74, fullscreen_opacity = 0.80, blur = { enabled = true, size = 6, passes = 2 } } })
+hl.window_rule({ name = "worlds-apart-glass", match = { class = ".*" }, opacity = "0.80 override 0.74 override 0.80 override", opaque = false, no_blur = false })

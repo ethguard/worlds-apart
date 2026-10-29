@@ -7,7 +7,7 @@
 
 /* Окно центра уведомлений */
 .control-center {
-    background: @background;
+    background: alpha(@background, 0.68);
     border: 2px solid @color4;
     border-radius: 4px;
     padding: 12px;
@@ -36,7 +36,7 @@
 
 /* Всплывающие уведомления (тосты на экране) теперь непрозрачные */
 .notification {
-    background: @background;
+    background: alpha(@background, 0.68);
     border: 1px solid @color4;
     border-radius: 4px;
     padding: 10px;
